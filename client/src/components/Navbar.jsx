@@ -1,6 +1,9 @@
 import { Bookmark, Group, Logout, Notifications, QuestionMark, Search, Settings} from '@mui/icons-material'
-import { AppBar, Avatar, Badge, Box, Divider, InputBase, ListItemIcon, Menu, MenuItem, Toolbar, Tooltip, Typography, styled } from '@mui/material'
+import { AppBar, Avatar, Badge, Box, Divider, InputBase, Link, ListItemIcon, Menu, MenuItem, Toolbar, Tooltip, Typography, styled } from '@mui/material'
 import React from 'react'
+
+import { Link as RouterLink } from 'react-router-dom';
+
 
 const StyledToolBar = styled(Toolbar)({
   display:"flex",
@@ -24,19 +27,42 @@ const Navbar = () => {
 
         <StyledToolBar>
         <Group sx={{display:{xs:"block", sm:"block"}}}/>
-        <Typography variant="h6" sx={{display:{xs:"none",sm:"block"}, padding:"10px"}}><b>Team ID 7078</b></Typography>
+        <Typography 
+          variant="h6" 
+          sx={{display:{xs:"none",sm:"block"}, padding:"10px"}}
+          >
+            <b>Team ID 7078</b>
+        </Typography>
         </StyledToolBar>
 
+        {/* Start of Search Bar */}
         <div style={{backgroundColor:"salmon", borderRadius:"50px", width:"40%", height:"50px"}}>
           <StyledToolBar sx={{justifyContent:"start"}}>
             <Search sx={{padding:"10px", paddingBottom:"20px"}}/>
             <InputBase placeholder='Search' sx={{paddingBottom:"10px", width:"90%", color:"white"}}/>
           </StyledToolBar>
         </div>
+        {/* End of Search Bar */}
+
 
         <Box sx={{display:"flex", gap:{xs:"15px",sm:"20px"}, alignItems:"center"}}>
-          <Typography variant="h7" sx={{display:{xs:"none", sm:"block"}}}>About</Typography>
+          <Typography
+            variant="h7" 
+            sx={{display:{xs:"none", sm:"block"}}}
+            >
+              <Link
+                component={RouterLink} 
+                variant='body1' 
+                color='secondary.main' 
+                to='/about' 
+                underline="none"
+                >
+                  About
+              </Link>
+          </Typography>
+
           <QuestionMark sx={{display:{xs:"block", sm:"none"}}}/>
+          
           <Badge badgeContent={2} color='error'>
             <Notifications/>
           </Badge>

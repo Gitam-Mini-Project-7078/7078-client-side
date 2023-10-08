@@ -1,19 +1,20 @@
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
-import CssBaseline from '@mui/material/CssBaseline';
 import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { Card, CardActionArea, CardContent, CardMedia, Stack } from '@mui/material';
-import MediaCard from '../components/MediaCard';
+
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
+
 
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://google.com/">
+      <Link color="primary.main" component={RouterLink} to='/' >
         Team 7078
       </Link>{' '}
       {new Date().getFullYear()}
@@ -24,6 +25,18 @@ function Copyright(props) {
 
 
 export default function SignUpOptions() {
+
+  let navigate = useNavigate();
+  const handleCardClick = event => {
+    if (event.currentTarget.id ==='provider') {
+      let path = '/signup-provider'
+      navigate(path)
+    }
+    if (event.currentTarget.id ==='poster'){
+      let path = '/signup-poster'
+      navigate(path)
+    }
+  }
 
   return (
       <Container component="main" maxWidth="sm" >
@@ -46,7 +59,7 @@ export default function SignUpOptions() {
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent={"space-between"} sx={{marginTop: 5}}>
 
             {/* Start of Provider Card */}
-            <Card sx={{maxWidth:345, minWidth:250}}>
+            <Card onClick={handleCardClick} sx={{maxWidth:345, minWidth:250}} id='provider'>
               <CardActionArea>
                 <CardMedia
                   component="img"
@@ -68,7 +81,7 @@ export default function SignUpOptions() {
 
 
             {/* Start of Poster Card */}
-            <Card sx={{maxWidth:345, minWidth:250}}>
+            <Card onClick={handleCardClick} sx={{maxWidth:345, minWidth:250}} id='poster'>
               <CardActionArea>
                 <CardMedia
                   component="img"

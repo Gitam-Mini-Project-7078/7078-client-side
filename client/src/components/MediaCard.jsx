@@ -6,10 +6,18 @@ import Typography from '@mui/material/Typography';
 import { Box, Button, CardActionArea, Snackbar} from '@mui/material';
 import { Share } from '@mui/icons-material';
 
+import { useNavigate } from "react-router-dom";
+
 
 export default function MediaCard() {
 
   const [open, setOpen] = React.useState(null);
+
+  let navigate = useNavigate();
+  const handleCardClick = () => {
+    let path = '/problem'
+    navigate(path);
+  };
 
   const handleButtonClick = () => {
     setOpen(true);
@@ -24,7 +32,7 @@ export default function MediaCard() {
   };
 
   return (
-    <Card sx={{maxWidth:345, minWidth:200}}>
+    <Card sx={{maxWidth:345, minWidth:200}} onClick={handleCardClick}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -55,7 +63,8 @@ export default function MediaCard() {
                 handleButtonClick();
                 console.log("Share Button clicked");
               }}
-              // onClick={handleButtonClick}
+              // onClick={handleButtonClick} -- Not under use. Look 3 lines above. 
+
             >
               Share
             </Button>
