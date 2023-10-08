@@ -14,6 +14,7 @@ export default function MediaCard() {
   const [open, setOpen] = React.useState(null);
 
   let navigate = useNavigate();
+  
   const handleCardClick = () => {
     let path = '/problem'
     navigate(path);

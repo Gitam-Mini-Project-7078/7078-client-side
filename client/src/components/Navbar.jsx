@@ -2,7 +2,7 @@ import { Bookmark, Group, Logout, Notifications, QuestionMark, Search, Settings}
 import { AppBar, Avatar, Badge, Box, Divider, InputBase, Link, ListItemIcon, Menu, MenuItem, Toolbar, Tooltip, Typography, styled } from '@mui/material'
 import React from 'react'
 
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
 
 
 const StyledToolBar = styled(Toolbar)({
@@ -12,10 +12,19 @@ const StyledToolBar = styled(Toolbar)({
 
 const Navbar = () => {
 
+  let navigate = useNavigate();
+
   const [anchorEl, setAnchorEl] = React.useState(null); //For User Menu to pop up
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+    if (event.currentTarget.id==='logo') {
+      let path = '/'
+      navigate(path) 
+    }
+
+    if (event.currentTarget.id==='avatar-button') {
+      setAnchorEl(event.currentTarget);
+    }
   };
   const handleClose = () => {
     setAnchorEl(null);
@@ -25,7 +34,8 @@ const Navbar = () => {
     <AppBar position="static">
       <StyledToolBar>
 
-        <StyledToolBar>
+        <Tooltip title="Go Home">
+        <StyledToolBar id='logo' onClick={handleClick}>
         <Group sx={{display:{xs:"block", sm:"block"}}}/>
         <Typography 
           variant="h6" 
@@ -34,6 +44,7 @@ const Navbar = () => {
             <b>Team ID 7078</b>
         </Typography>
         </StyledToolBar>
+        </Tooltip>
 
         {/* Start of Search Bar */}
         <div style={{backgroundColor:"salmon", borderRadius:"50px", width:"40%", height:"50px"}}>
