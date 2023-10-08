@@ -7,11 +7,12 @@ import { Box, Stack } from '@mui/material'
 import SignIn from './webpages/SignIn'
 import SignUp from './webpages/SignUp'
 import Home from './webpages/Home'
+import SignUpOptions from './webpages/SignUpOptions'
 
 export default function App() {
   return (
-    <Box sx={{backgroundColor:"mistyrose", /*overflow:'hidden'*/}}>
-      <Home/>
+    <Box sx={{backgroundColor:"", /*overflow:'hidden'*/}}>
+      <SignUpOptions/>
     </Box>
   )
 }

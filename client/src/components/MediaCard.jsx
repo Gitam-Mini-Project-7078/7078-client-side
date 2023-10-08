@@ -29,7 +29,7 @@ export default function MediaCard() {
         <CardMedia
           component="img"
           height="140"
-          image={require('./pnb.png')} //doesnt work without 'require'
+          image={require('../images/pnb.png')} //doesnt work without 'require'
           alt="green iguana"
         />
         <CardContent>
