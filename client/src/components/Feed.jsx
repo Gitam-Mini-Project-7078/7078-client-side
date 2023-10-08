@@ -5,9 +5,9 @@ import { CorporateFare, People } from '@mui/icons-material'
 
 const Feed = () => {
   return (
-    //<Box sx={{backgroundColor:"chartreuse"}}> can also be used
     <Box bgcolor={""} flex={4} padding={2}>
-    {/*<Box bgcolor={"chartreuse"} flex={4} padding={2}> */}
+
+    {/*Top Text in Feed*/}
       <Typography 
         variant="h4" 
         sx={{display:{xs:"none",sm:"block"}, padding:"20px", color:'primary.main'}}
@@ -16,6 +16,7 @@ const Feed = () => {
         <b>Top listings today</b>
       </Typography>
       
+    {/*Start of Government Section of Problems*/}      
       <div id='GOVT'>
       <Typography
         variant="h6"
@@ -28,7 +29,10 @@ const Feed = () => {
       <MediaCard/><MediaCard/><MediaCard/> 
       </Stack>
       </div>
+    {/*End of Government Section of Problems*/}
 
+
+    {/*Start of Private Section of Problems*/}    
       <Box id='PRIV' sx={{paddingTop:'30px'}}>
       <Typography
         variant="h6"
@@ -41,6 +45,8 @@ const Feed = () => {
       <MediaCard/><MediaCard/><MediaCard/> 
       </Stack>
       </Box>
+    {/*End of Private Section of Problems*/}
+
     </Box>
   )
 }
