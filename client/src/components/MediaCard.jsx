@@ -3,8 +3,8 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Box, Button, CardActionArea, Snackbar} from '@mui/material';
-import { Share } from '@mui/icons-material';
+import { Box, Button, CardActionArea, Checkbox, Snackbar} from '@mui/material';
+import { Bookmark, BookmarkBorder, Share } from '@mui/icons-material';
 
 import { useNavigate } from "react-router-dom";
 
@@ -20,7 +20,7 @@ export default function MediaCard() {
     navigate(path);
   };
 
-  const handleButtonClick = () => {
+  const handleButtonClick = (event) => {
     setOpen(true);
   };
 
@@ -51,7 +51,8 @@ export default function MediaCard() {
               species, ranging across all continents except Antarctica
             </Typography>
           </Box>
-          <div>
+
+          <Box sx={{display:'flex', justifyContent:'space-between'}}>
             <Button
               size="small"
               color="primary"
@@ -69,6 +70,17 @@ export default function MediaCard() {
             >
               Share
             </Button>
+            <Checkbox
+              id = 'bookmark-button'
+              icon={<BookmarkBorder />}
+              checkedIcon={<Bookmark />}
+              onTouchStart={(event) => event.stopPropagation()} //for mobile
+              onMouseDown={event => event.stopPropagation()} //for PC
+              onClick={event => {
+                event.stopPropagation();
+                console.log("Bookmark Button clicked");
+              }}
+            />
 
             <Snackbar
               open={open}
@@ -76,7 +88,9 @@ export default function MediaCard() {
               onClose={handleClose}
               message="Link Copied"
             />
-          </div>
+
+          </Box>
+
         </CardContent>
       </CardActionArea>
     </Card>
