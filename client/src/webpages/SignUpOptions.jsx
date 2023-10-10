@@ -59,11 +59,11 @@ export default function SignUpOptions() {
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent={"space-between"} sx={{marginTop: 5}}>
 
             {/* Start of Provider Card */}
-            <Card onClick={handleCardClick} sx={{maxWidth:345, minWidth:250}} id='provider'>
+            <Card onClick={handleCardClick} sx={{maxWidth:345, minWidth:300}} id='provider'>
               <CardActionArea>
                 <CardMedia
                   component="img"
-                  height="140"
+                  height="170"
                   image={require('../images/provider.png')} //doesnt work without 'require'
                   alt="green iguana"
                 />
@@ -81,11 +81,11 @@ export default function SignUpOptions() {
 
 
             {/* Start of Poster Card */}
-            <Card onClick={handleCardClick} sx={{maxWidth:345, minWidth:250}} id='poster'>
+            <Card onClick={handleCardClick} sx={{maxWidth:345, minWidth:300}} id='poster'>
               <CardActionArea>
                 <CardMedia
                   component="img"
-                  height="140"
+                  height="170"
                   image={require('../images/poster.png')} //doesnt work without 'require'
                   alt="green iguana"
                 />
