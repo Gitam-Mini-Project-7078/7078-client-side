@@ -10,6 +10,7 @@ import Error from './webpages/Error'
 import About from './webpages/About'
 import Problem from './webpages/Problem'
 import AllPosts from './webpages/AllPosts'
+import Bookmarks from './webpages/Bookmarks'
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
         <Route path='/signup-provider' element={ <SignUpProvider/> } />
         <Route path='/signup-poster' element={ <SignUpPoster/> } />
         <Route path='/problem' element={ <Problem/> } />
+        <Route path='/bookmarks' element={<Bookmarks/>}/>
 
         <Route path='/error' element={ <Error/> } />
       </Routes>

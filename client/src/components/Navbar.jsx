@@ -25,6 +25,11 @@ const Navbar = () => {
     if (event.currentTarget.id==='avatar-button') {
       setAnchorEl(event.currentTarget);
     }
+
+    if (event.currentTarget.id==='bookmark-button') {
+      let path = '/bookmarks'
+      navigate(path)
+    }
   };
   const handleClose = () => {
     setAnchorEl(null);
@@ -128,7 +133,7 @@ const Navbar = () => {
             <MenuItem onClick={handleClose}>
               <Avatar /> My Profile
             </MenuItem>
-            <MenuItem onClick={handleClose}>
+            <MenuItem onClick={handleClick} id='bookmark-button'>
               <ListItemIcon>
                 <Bookmark fontSize="small" />
               </ListItemIcon>
