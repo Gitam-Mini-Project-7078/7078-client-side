@@ -9,12 +9,14 @@ import { Routes, Route } from 'react-router-dom'
 import Error from './webpages/Error'
 import About from './webpages/About'
 import Problem from './webpages/Problem'
+import AllPosts from './webpages/AllPosts'
 
 export default function App() {
   return (
     <Box sx={{backgroundColor:"", /*overflow:'hidden'*/}}>
       <Routes>
         <Route path='/' element={ <Home/> } />
+        <Route path='/all' element={<AllPosts/>}/>
         <Route path='/about' element={ <About/> } />
         <Route path='/signin' element={ <SignIn/> } />
         <Route path='/signup-options' element={ <SignUpOptions/> } />

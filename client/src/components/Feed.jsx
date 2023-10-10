@@ -5,8 +5,9 @@ import { CorporateFare, People } from '@mui/icons-material'
 
 const Feed = () => {
   return (
-    <Box bgcolor={""} flex={4} padding={2}>
-
+  
+  <Box bgcolor={""} flex={4} padding={2}>
+    <Box sx={{ flexGrow:1 }}>
     {/*Top Text in Feed*/}
       <Typography 
         variant="h4" 
@@ -46,8 +47,8 @@ const Feed = () => {
       </Stack>
       </Box>
     {/*End of Private Section of Problems*/}
-
     </Box>
+  </Box>
   )
 }
 

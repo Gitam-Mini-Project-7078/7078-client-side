@@ -33,7 +33,7 @@ export default function MediaCard() {
   };
 
   return (
-    <Card sx={{maxWidth:345, minWidth:200}} onClick={handleCardClick}>
+    <Card sx={{maxWidth:300, minWidth:150}} onClick={handleCardClick}>
       <CardActionArea>
         <CardMedia
           component="img"

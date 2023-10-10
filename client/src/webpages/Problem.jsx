@@ -1,8 +1,24 @@
 import { Box, Card, CardMedia, Divider, Stack, Typography } from '@mui/material'
 import React from 'react'
 import Navbar from '../components/Navbar'
+import { styled } from '@mui/material/styles';
+import Button from '@mui/material/Button';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
 function Problem() {
+  
+  const VisuallyHiddenInput = styled('input')({
+    clip: 'rect(0 0 0 0)',
+    clipPath: 'inset(50%)',
+    height: 1,
+    overflow: 'hidden',
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    whiteSpace: 'nowrap',
+    width: 1,
+  });
+
   return (
 
     <Box>
@@ -37,7 +53,13 @@ function Problem() {
             </Card>
 
             <Box sx={{border:'1px', borderRadius:'20px'}} flex={4} padding={0}>
-              <Stack direction='column' spacing={1} justifyContent={'space-between'} bgcolor={'beige'} padding={2}>
+              <Stack 
+                direction='column' 
+                spacing={1} 
+                justifyContent={'space-between'} 
+                bgcolor={''} 
+                padding={2} 
+                sx={{boxShadow: 1}}>
 
                 <Box paddingTop={0}>
                   <Typography 
@@ -84,6 +106,15 @@ function Problem() {
                     Lorem Ipsum Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text
                     </Typography>
                   </Stack>
+                </Box>
+
+                <Divider/>
+
+                <Box alignContent={'center'} alignSelf={'center'}>
+                <Button component="label" variant="contained" startIcon={<CloudUploadIcon />} sx={{maxWidth:'180px'}} size='small' >
+                  Upload file
+                  <VisuallyHiddenInput type="file" />
+                </Button>
                 </Box>
 
               </Stack>

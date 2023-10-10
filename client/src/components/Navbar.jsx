@@ -57,6 +57,8 @@ const Navbar = () => {
 
 
         <Box sx={{display:"flex", gap:{xs:"15px",sm:"20px"}, alignItems:"center"}}>
+
+
           <Typography
             variant="h7" 
             sx={{display:{xs:"none", sm:"block"}}}
@@ -72,7 +74,9 @@ const Navbar = () => {
               </Link>
           </Typography>
 
+
           <QuestionMark sx={{display:{xs:"block", sm:"none"}}}/>
+
           
           <Badge badgeContent={2} color='error'>
             <Notifications/>
