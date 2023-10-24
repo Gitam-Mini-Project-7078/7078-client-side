@@ -39,7 +39,7 @@ export default function MediaCard() {
           component="img"
           height="140"
           image={require('../images/pnb.png')} //doesnt work without 'require'
-          alt="green iguana"
+          alt="problem image"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div" noWrap>
