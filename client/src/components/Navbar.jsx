@@ -1,5 +1,5 @@
 import { Bookmark, Group, Logout, Notifications, QuestionMark, Search, Settings} from '@mui/icons-material'
-import { AppBar, Avatar, Badge, Box, Divider, InputBase, Link, ListItemIcon, Menu, MenuItem, Toolbar, Tooltip, Typography, styled } from '@mui/material'
+import { Accordion, AccordionDetails, AccordionSummary, AppBar, Avatar, Badge, Box, Divider, InputBase, Link, ListItemIcon, Menu, MenuItem, Stack, Toolbar, Tooltip, Typography, styled } from '@mui/material'
 import React from 'react'
 
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
@@ -96,7 +96,7 @@ const Navbar = () => {
             id="account-menu"
             open={open}
             onClose={handleClose}
-            onClick={handleClose}
+            // onClick={handleClose
 
             /* The sole purpose of the code below is to make the "My Profile" button in the Menu look pretty */
             PaperProps={{
@@ -130,8 +130,50 @@ const Navbar = () => {
             transformOrigin={{ horizontal: 'right', vertical: 'top' }}
             anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
           >
-            <MenuItem onClick={handleClose}>
-              <Avatar /> My Profile
+            <MenuItem >
+
+              <Accordion sx={{maxWidth:'250px'}}>
+                <AccordionSummary
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  <Avatar /> My Profile
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Stack direction='column' bgcolor={'secondary.main'} padding={0}>
+                    <Typography 
+                      variant="h7"
+                      color={'primary.main'}
+                    >
+                      <b>Email</b>
+                    </Typography>
+                    <Typography 
+                      variant="h8"
+                      lineHeight={1.5}
+                      id = 'email'
+                    >
+                      sample.email@gmail.com
+                    </Typography>
+                  </Stack>
+
+                  <Stack direction='column' bgcolor={'secondary.main'} paddingTop={1}>
+                    <Typography 
+                      variant="h8"
+                      color={'primary.main'}
+                    >
+                      <b>User Role</b>
+                    </Typography>
+                    <Typography 
+                      variant="h8"
+                      lineHeight={1.5}
+                      id = 'role'
+                    >
+                      Role
+                    </Typography>
+                  </Stack>
+                </AccordionDetails>
+              </Accordion>
+
             </MenuItem>
             <MenuItem onClick={handleClick} id='bookmark-button'>
               <ListItemIcon>

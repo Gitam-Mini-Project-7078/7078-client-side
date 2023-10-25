@@ -11,6 +11,7 @@ import About from './webpages/About'
 import Problem from './webpages/Problem'
 import AllPosts from './webpages/AllPosts'
 import Bookmarks from './webpages/Bookmarks'
+import ProfilePage from './webpages/ProfilePage'
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
         <Route path='/signup-poster' element={ <SignUpPoster/> } />
         <Route path='/problem' element={ <Problem/> } />
         <Route path='/bookmarks' element={<Bookmarks/>}/>
+        <Route path='/profile' element={<ProfilePage/>}/>
 
         <Route path='/error' element={ <Error/> } />
       </Routes>

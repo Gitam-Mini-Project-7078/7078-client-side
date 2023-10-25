@@ -82,6 +82,14 @@ export default function MediaCard() {
               }}
             />
 
+            <Box sx={{display:'none'}} id = 'industrySector'>
+              test
+            </Box>
+            
+            <Box sx={{display:'none'}} id = 'subjectField'>
+              test
+            </Box>
+
             <Snackbar
               open={open}
               autoHideDuration={400}

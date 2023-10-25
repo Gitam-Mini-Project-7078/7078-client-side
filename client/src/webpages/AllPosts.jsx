@@ -1,4 +1,4 @@
-import { Box, Button, Stack } from '@mui/material'
+import { Box, Stack } from '@mui/material'
 import React from 'react'
 import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
