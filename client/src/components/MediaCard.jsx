@@ -90,6 +90,10 @@ export default function MediaCard() {
               test
             </Box>
 
+            <Box sx={{display:'none'}} id = 'reward'>
+              test
+            </Box>
+
             <Snackbar
               open={open}
               autoHideDuration={400}
