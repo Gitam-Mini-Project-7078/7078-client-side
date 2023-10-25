@@ -2,7 +2,7 @@ import React from 'react'
 
 function Error() {
   return (
-    <div>Error<br/>The Functionality has not been built yet</div>
+    <div>Error 404<br/>The Functionality has not been built yet</div>
   )
 }
 

@@ -1,9 +1,10 @@
 import { Box, Card, CardMedia, Divider, Stack, Typography } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from '../components/Navbar'
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import RightDrawer from '../components/RightDrawer';
 
 function Problem() {
   
@@ -19,6 +20,16 @@ function Problem() {
     width: 1,
   });
 
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const openDrawer = () => {
+    setIsDrawerOpen(true);
+  };
+
+  const closeDrawer = () => {
+    setIsDrawerOpen(false);
+  };
+
   return (
 
     <Box>
@@ -31,7 +42,7 @@ function Problem() {
         </Box>
 
         <Stack direction="column" spacing={{xs:'none', sm:2}} justifyContent={"space-between"} flex={4} padding={2}>
-          <Box bgcolor={"beige"} padding={2}>
+          <Box bgcolor={""} padding={2}>
 
             <Typography 
               variant="h4" 
@@ -114,9 +125,9 @@ function Problem() {
                   <Divider/>
 
                   <Box alignContent={'center'} alignSelf={'center'}>
-                  <Button component="label" variant="contained" startIcon={<CloudUploadIcon />} sx={{maxWidth:'180px'}} size='small' >
-                    Upload file
-                    <VisuallyHiddenInput type="file" />
+                  <Button onClick={openDrawer} component="label" variant="contained" startIcon={<CloudUploadIcon />} sx={{maxWidth:'180px'}} size='small' >
+                    Submit Solution
+                    {/* <VisuallyHiddenInput type="file" /> */}
                   </Button>
                   </Box>
 
@@ -126,24 +137,10 @@ function Problem() {
             </Stack>
           </Box>
 
+          <RightDrawer open={isDrawerOpen} onClose={closeDrawer} />
+
           <Box bgcolor={""} padding={2} id=''>
             <Box paddingTop={2}>
-              <Stack direction='column' spacing={1} justifyContent={'space-between'} bgcolor={'secondary.main'} padding={0}>
-                <Typography 
-                  variant="h7"
-                  // textAlign={'center'}
-                >
-                  <b>Detailed Description</b>
-                </Typography>
-                <Typography 
-                  variant="h7"
-                  lineHeight={1.5}
-                  id = 'longDescription'
-                >
-                Lorem Ipsum Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text
-                </Typography>
-              </Stack>
-
               <Stack direction='column' spacing={1} justifyContent={'space-between'} bgcolor={'secondary.main'} padding={0}>
                 <Typography 
                   variant="h7"
