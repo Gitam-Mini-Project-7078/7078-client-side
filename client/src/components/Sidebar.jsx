@@ -1,10 +1,106 @@
-import { Box } from '@mui/material'
+import { CorporateFare, People } from '@mui/icons-material'
+import { Box, Button, Checkbox, Divider, FormControl, FormControlLabel, FormGroup, Input, InputAdornment, InputLabel, List, ListItem, ListItemIcon, ListItemText, ListSubheader, OutlinedInput, Switch, Typography } from '@mui/material'
 import React from 'react'
 
 const Sidebar = () => {
   return (
     <Box bgcolor={""} flex={1} padding={2} sx={{display:{xs: "none", sm:"block"}}}>
-      Sidebar<br/>
+
+      <Typography 
+          variant="h6" 
+          sx={{display:{xs:"none",sm:"block"}, padding:"5px", color:'primary.main'}}
+          textAlign={'left'}
+      >
+          <b>Filters</b>
+      </Typography>
+
+      <Divider/>
+
+        <List
+          sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+        >
+          <ListItem>
+            <ListItemIcon>
+              <People />
+            </ListItemIcon>
+            <ListItemText id="switch-list-label-govt" primary="Govt. Posts" />
+            <Switch
+              edge="end"
+              // onChange={handleToggle('wifi')}
+              // checked={checked.indexOf('wifi') !== -1}
+              inputProps={{
+                'aria-labelledby': 'switch-list-label-wifi',
+              }}
+            />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon>
+              <CorporateFare />
+            </ListItemIcon>
+            <ListItemText id="switch-list-label-bluetooth" primary="Pvt. Posts" />
+            <Switch
+              edge="end"
+              // onChange={handleToggle('bluetooth')}
+              // checked={checked.indexOf('bluetooth') !== -1}
+              inputProps={{
+                'aria-labelledby': 'switch-list-label-bluetooth',
+              }}
+            />
+          </ListItem>
+        </List>
+
+      <Divider/>
+
+      <Typography 
+          variant="h7" 
+          sx={{display:{xs:"none",sm:"block"}, padding:"5px", color:'grey', paddingTop:2}}
+          textAlign={'left'}
+      >
+          Subject Fields
+      </Typography>
+
+      <FormGroup>
+        {['cse', 'psych', 'mech', 'test'].map((text) => (
+          < FormControlLabel control={<Checkbox defaultChecked />} label = {text} />
+        ))}
+      </FormGroup>
+
+      <Divider/>
+
+      <Typography 
+          variant="h7" 
+          sx={{display:{xs:"none",sm:"block"}, padding:"5px", color:'grey', paddingTop:2}}
+          textAlign={'left'}
+      >
+          Reward Range
+      </Typography>
+
+      <FormControl fullWidth sx={{ m: 1, width: '25ch'}} size='small'>
+          <InputLabel htmlFor="outlined-adornment-amount">Minimum</InputLabel>
+          <OutlinedInput
+            id="outlined-adornment-amount"
+            startAdornment={<InputAdornment position="start">₹</InputAdornment>}
+            label="minAmount"
+          />
+      </FormControl>
+
+      <FormControl fullWidth sx={{ m: 1, width: '25ch'}} size='small'>
+          <InputLabel htmlFor="outlined-adornment-amount">Maximum</InputLabel>
+          <OutlinedInput
+            id="outlined-adornment-amount"
+            startAdornment={<InputAdornment position="start">₹</InputAdornment>}
+            label="maxAmount"
+          />
+      </FormControl>
+
+      <Divider sx={{paddingBottom:2}}/>
+
+      <Box textAlign={'center'} paddingTop={2}>
+        <Button variant="contained" color="primary" size='small'>
+              Apply
+        </Button>
+      </Box>
+
 
     </Box>
   )
