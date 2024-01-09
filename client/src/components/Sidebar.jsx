@@ -60,7 +60,7 @@ const Sidebar = () => {
       </Typography>
 
       <FormGroup>
-        {['cse', 'psych', 'mech', 'test'].map((text) => (
+        {['Computer Science', 'Psychology', 'Mechanical', 'Anthropology'].map((text) => (
           < FormControlLabel control={<Checkbox defaultChecked />} label = {text} />
         ))}
       </FormGroup>

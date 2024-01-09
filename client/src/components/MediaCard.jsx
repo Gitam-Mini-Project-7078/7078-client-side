@@ -43,7 +43,7 @@ export default function MediaCard() {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div" noWrap>
-            Lizard
+            Problem Title
           </Typography>
           <Box sx={{maxHeight:100, overflowY:'hidden'}}>
             <Typography variant="body2" color="text.secondary" paddingBottom={1}>
