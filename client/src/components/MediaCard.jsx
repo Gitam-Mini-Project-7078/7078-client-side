@@ -7,20 +7,23 @@ import { Box, Button, CardActionArea, Checkbox, Snackbar} from '@mui/material';
 import { Bookmark, BookmarkBorder, Share } from '@mui/icons-material';
 
 import { useNavigate } from "react-router-dom";
+import copy from 'clipboard-copy'
 
 
-export default function MediaCard() {
+export default function MediaCard({problem}) {
 
   const [open, setOpen] = React.useState(null);
 
   let navigate = useNavigate();
   
   const handleCardClick = () => {
-    let path = '/problem'
+    let path = `/problem/${problem._id}`
     navigate(path);
   };
 
   const handleButtonClick = (event) => {
+    const textToCopy = `localhost:3000/problem/${problem._id}`;
+    copy(textToCopy);
     setOpen(true);
   };
 
@@ -33,7 +36,7 @@ export default function MediaCard() {
   };
 
   return (
-    <Card sx={{maxWidth:300, minWidth:150}} onClick={handleCardClick}>
+    <Card sx={{maxWidth:300, minWidth:300}} onClick={handleCardClick}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -42,17 +45,20 @@ export default function MediaCard() {
           alt="problem image"
         />
         <CardContent>
+          
           <Typography gutterBottom variant="h5" component="div" noWrap>
-            Problem Title
+            {/* Problem Title */}
+            {problem.title}
           </Typography>
+
           <Box sx={{maxHeight:100, overflowY:'hidden'}}>
             <Typography variant="body2" color="text.secondary" paddingBottom={1}>
-              Lizards are a widespread group of squamate reptiles, with over 6,000
-              species, ranging across all continents except Antarctica
+              {/* Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica */}
+              {problem.shortDescription}
             </Typography>
           </Box>
 
-          <Box sx={{display:'flex', justifyContent:'space-between'}}>
+          <Box sx={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
             <Button
               size="small"
               color="primary"
@@ -70,6 +76,19 @@ export default function MediaCard() {
             >
               Share
             </Button>
+
+            <Box id = 'industrySector'>
+              {problem.subject}
+            </Box>
+            
+            <Box sx={{display:'none'}} id = 'subjectField'>
+              test
+            </Box>
+
+            <Box sx={{display:'none'}} id = 'reward'>
+              test
+            </Box>
+
             <Checkbox
               id = 'bookmark-button'
               icon={<BookmarkBorder />}
@@ -81,18 +100,6 @@ export default function MediaCard() {
                 console.log("Bookmark Button clicked");
               }}
             />
-
-            <Box sx={{display:'none'}} id = 'industrySector'>
-              test
-            </Box>
-            
-            <Box sx={{display:'none'}} id = 'subjectField'>
-              test
-            </Box>
-
-            <Box sx={{display:'none'}} id = 'reward'>
-              test
-            </Box>
 
             <Snackbar
               open={open}

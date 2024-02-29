@@ -3,6 +3,9 @@ import { Box, Button, Checkbox, Divider, FormControl, FormControlLabel, FormGrou
 import React from 'react'
 
 const Sidebar = () => {
+
+  const subjectsList = ['Computer Science', 'Electrical Engineering', 'Civil Engineering', 'Medicine', 'Biology', 'Botany', 'Psychology', 'Social Sciences', 'Pharma','Economics'];
+
   return (
     <Box bgcolor={""} flex={1} padding={2} sx={{display:{xs: "none", sm:"block"}}}>
 
@@ -28,9 +31,9 @@ const Sidebar = () => {
               edge="end"
               // onChange={handleToggle('wifi')}
               // checked={checked.indexOf('wifi') !== -1}
-              inputProps={{
-                'aria-labelledby': 'switch-list-label-wifi',
-              }}
+              // inputProps={{
+              //   'aria-labelledby': 'switch-list-label-wifi',
+              // }}
             />
           </ListItem>
           <ListItem>
@@ -42,9 +45,9 @@ const Sidebar = () => {
               edge="end"
               // onChange={handleToggle('bluetooth')}
               // checked={checked.indexOf('bluetooth') !== -1}
-              inputProps={{
-                'aria-labelledby': 'switch-list-label-bluetooth',
-              }}
+              // inputProps={{
+              //   'aria-labelledby': 'switch-list-label-bluetooth',
+              // }}
             />
           </ListItem>
         </List>
@@ -60,8 +63,8 @@ const Sidebar = () => {
       </Typography>
 
       <FormGroup>
-        {['Computer Science', 'Psychology', 'Mechanical', 'Anthropology'].map((text) => (
-          < FormControlLabel control={<Checkbox defaultChecked />} label = {text} />
+        {subjectsList.map((text) => (
+          < FormControlLabel control={<Checkbox defaultChecked size="small"/>} label = {text} />
         ))}
       </FormGroup>
 

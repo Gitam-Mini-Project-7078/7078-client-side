@@ -76,10 +76,11 @@ export default function SignIn() {
               id="password"
               autoComplete="current-password"
             />
-            <FormControlLabel
+            {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
-            />
+            /> */}
+            
             <Button
               type="submit"
               fullWidth
@@ -95,9 +96,14 @@ export default function SignIn() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link component={RouterLink} to='/signup-options' variant="body2">
+                {/* <Link component={RouterLink} to='/signup-options' variant="body2">
+                  {"Don't have an account? Sign Up"}
+                </Link> */}
+
+                <Link component={RouterLink} to='/signup' variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
+
               </Grid>
             </Grid>
           </Box>

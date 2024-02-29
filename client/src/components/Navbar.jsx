@@ -63,6 +63,20 @@ const Navbar = () => {
 
         <Box sx={{display:"flex", gap:{xs:"15px",sm:"20px"}, alignItems:"center"}}>
 
+        <Typography
+            variant="h7" 
+            sx={{display:{xs:"none", sm:"block"}}}
+            >
+              <Link
+                component={RouterLink} 
+                variant='body1' 
+                color='secondary.main' 
+                to='/create-problem' 
+                underline="none"
+                >
+                  Create problem
+              </Link>
+          </Typography>
 
           <Typography
             variant="h7" 

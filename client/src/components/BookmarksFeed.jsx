@@ -3,12 +3,12 @@ import React from 'react'
 import MediaCard from './MediaCard'
 import { useNavigate } from 'react-router-dom';
 
-const BookmarksFeed = () => {
+const BookmarksFeed = ({ problems }) => {
 
     let navigate = useNavigate();
 
     const handleOnClick = (event) => {
-      let path = '/all'
+      let path = '/'
       navigate(path)
   
     };
@@ -28,12 +28,18 @@ const BookmarksFeed = () => {
 
             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
 
+                {problems.map((item) => (
+                    <Box sx={{padding: 0.5}}>
+                        <MediaCard key={item._id} problem={item} />
+                    </Box>
+                ))}
+
                 {/* The number (here, 5) represents the number of cards displayed */}
-                {Array.from(Array(5)).map((_, index) => (
+                {/* {Array.from(Array(5)).map((_, index) => (
                 <Grid xs={2} sm={4} md={4} key={index} padding={1}>
                     <MediaCard/>
                 </Grid>
-                ))}
+                ))} */}
                 
             </Grid>
 

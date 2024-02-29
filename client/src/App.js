@@ -12,20 +12,23 @@ import Problem from './webpages/Problem'
 import AllPosts from './webpages/AllPosts'
 import Bookmarks from './webpages/Bookmarks'
 import ProfilePage from './webpages/ProfilePage'
+import CreateProblem from './webpages/CreateProblem'
 
 export default function App() {
   return (
     <Box sx={{backgroundColor:"", /*overflow:'hidden'*/}}>
       <Routes>
-        <Route path='/' element={ <Home/> } />
-        <Route path='/all' element={<AllPosts/>}/>
+        <Route path='/home' element={ <Home/> } />
+        <Route path='/' element={<AllPosts/>}/>
         <Route path='/about' element={ <About/> } />
         <Route path='/signin' element={ <SignIn/> } />
-        <Route path='/signup-options' element={ <SignUpOptions/> } />
+        {/* <Route path='/signup-options' element={ <SignUpOptions/> } />
         <Route path='/signup-provider' element={ <SignUpProvider/> } />
-        <Route path='/signup-poster' element={ <SignUpPoster/> } />
-        <Route path='/problem' element={ <Problem/> } />
+        <Route path='/signup-poster' element={ <SignUpPoster/> } /> */}
+        <Route path='/signup' element={<SignUpProvider/>} />
+        <Route path='/problem/:id' element={ <Problem/> } />
         <Route path='/bookmarks' element={<Bookmarks/>}/>
+        <Route path='/create-problem' element={<CreateProblem/>}/>
         <Route path='/profile' element={<ProfilePage/>}/>
 
         <Route path='/error' element={ <Error/> } />

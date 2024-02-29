@@ -2,7 +2,7 @@ import { Box,Grid, Typography } from '@mui/material'
 import React from 'react'
 import MediaCard from './MediaCard'
 
-const AllPostsFeed = () => {
+const AllPostsFeed = ({ problems }) => {
   return (
     <Box bgcolor={""} flex={4} padding={3}>
 
@@ -16,18 +16,17 @@ const AllPostsFeed = () => {
 
         <Box sx={{ flexGrow: 1 }} paddingTop={4}>
 
-            <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+            <Grid container spacing={{ xs: 2, am: 3, md: 3 }} columns={{ xs: 2, sm: 4, md: 6 }} justifyContent={"flex-start"}>
 
-                {/* The number (here, 8) represents the number of cards displayed */}
-                {Array.from(Array(8)).map((_, index) => (
-                <Grid xs={2} sm={4} md={4} key={index} padding={1}>
-                    <MediaCard/>
-                </Grid>
-                ))}
+                {problems.map((item) => (
+                    <Box sx={{padding: 0.5}}>
+                        <MediaCard key={item._id} problem={item} />
+                    </Box>
+                ))}    
                 
             </Grid>
-
         </Box>
+
     </Box>
   )
 }

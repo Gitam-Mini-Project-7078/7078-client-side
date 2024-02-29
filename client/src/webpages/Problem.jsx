@@ -1,12 +1,16 @@
 import { Box, Card, CardMedia, Divider, Stack, Typography } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Navbar from '../components/Navbar'
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import RightDrawer from '../components/RightDrawer';
 
-function Problem() {
+import axios from 'axios';
+import { useParams } from 'react-router-dom'
+
+
+const Problem = () => {
   
   const VisuallyHiddenInput = styled('input')({
     clip: 'rect(0 0 0 0)',
@@ -19,6 +23,20 @@ function Problem() {
     whiteSpace: 'nowrap',
     width: 1,
   });
+
+  const [problem, setProblem] = useState({});
+  const { id } = useParams();
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:7078/problems/${id}`)
+      .then((response) => {
+        setProblem(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [])
 
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
@@ -50,7 +68,8 @@ function Problem() {
               id = "problemTitle"
               // textAlign={'center'}
             >
-              <b>Problem Title</b>
+              {/* <b>Problem Title</b> */}
+              {problem.title}
             </Typography>
             <Divider/>
 
@@ -85,7 +104,9 @@ function Problem() {
                       variant="h7"
                       // textAlign={'center'}
                     >
-                      *Insert Date*
+                      {/* *Insert Date* */}
+                      {problem.closeDate}
+
                     </Typography>
                   </Box>
 
@@ -100,7 +121,9 @@ function Problem() {
                       variant="h7"
                       // textAlign={'center'}
                     >
-                      *Insert Amount*
+                      {/* *Insert Amount* */}
+                      {problem.reward}
+
                     </Typography>
                   </Box>
 
@@ -117,7 +140,9 @@ function Problem() {
                         lineHeight={1.5}
                         id = 'shortDescription'
                       >
-                      Lorem Ipsum Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text
+                      {/* Lorem Ipsum Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text */}
+                      {problem.shortDescription}
+
                       </Typography>
                     </Stack>
                   </Box>
@@ -153,7 +178,9 @@ function Problem() {
                   lineHeight={1.5}
                   id = 'longDescription'
                 >
-                Lorem Ipsum Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text
+                {/* Lorem Ipsum Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text */}
+                {problem.detailedDescription}
+
                 </Typography>
               </Stack>
               

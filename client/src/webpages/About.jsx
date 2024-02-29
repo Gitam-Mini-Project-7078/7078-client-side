@@ -24,7 +24,7 @@ export default function About() {
       <Navbar/>
 
       <Stack direction="row" spacing={{xs:'none', sm:2}} justifyContent={"space-between"}>
-        <Sidebar/>
+        <Rightbar/>
 
           <Box bgcolor={""} flex={4} padding={3}>
 
